@@ -354,7 +354,7 @@ function setValue() {
 /** 检查公式格式 */
 const checkFormula = () => {
   let formula=props.modelValue.formula;
-  let reg = /}{|^[+\-*/%]|[+\-*/%]$|\d{|}\d|}\(|\(}|\(\)|\d\(|\)\d|\)\(|\([+\-*/%]|[+\-*/%]\)|[+\-*/%]{2,}/;
+  let reg = /}{|^[.+\-*/%]|[.+\-*/%]$|}\d|\d{|\(}|}\(|\(\)|\d\(|\)\d|\)\(|\([.+\-*/%]|[.+\-*/%]\)|[.+\-*/%]{2,}|\.{|\d*\.\d*\.\d+/;
   let arr=formula.match(reg)||!is_leagl_brackets(formula)||!formula;
   if(arr){
     errorMsg.value=("公式格式错误或为空");
