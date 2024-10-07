@@ -4,8 +4,7 @@
 
 <script setup>
 import FormulaInput from './views/FormulaInput/index.vue'
-import { ref, watch } from 'vue'
-const validKeys='0123456789+-*/%@()'
+import { ref } from 'vue'
 const formulaCheck = ref(false)
 const model = ref({
   formula: '{bonus}+{bs}+300',
