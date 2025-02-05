@@ -97,13 +97,18 @@ watch(() => showSelection.value, (newVal) => {
 
 onMounted(() => {
   initDisplay();
+  window.addEventListener('resize', handleResize);
 });
 
 onBeforeUnmount(() => {
   removeEventListener();
+  window.removeEventListener('resize', handleResize);
   const ele = document.querySelector('.formula-input-selection');
   ele && ele.parentNode.removeChild(ele);
 });
+function handleResize() {
+  showSelection.value&&setSelectionStyle();
+}
 function setOptionRef(index) {
   return (el) => {
     optionRefs.value[index] = el;
@@ -205,9 +210,7 @@ function getClosestOption(direction = 'down') {
 
   // 确保存在当前选项
   const currentElement = options[currentIndex];
-  if (!currentElement) {
-    return null;
-  }
+  if (!currentElement) return null;
 
   const currentRect = currentElement.getBoundingClientRect();
   const currentCenterX = currentRect.left + (currentRect.width / 2);
