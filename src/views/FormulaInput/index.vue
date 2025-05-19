@@ -16,7 +16,7 @@
   </div>
 </template>
 
-<script setup>
+<script name="FormulaInput-vue3" setup>
 import { ref, reactive, computed, watch, onMounted, onBeforeUnmount,nextTick } from 'vue';
 import { ElInput } from 'element-plus';
 import 'element-plus/dist/index.css';
